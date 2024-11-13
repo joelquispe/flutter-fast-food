@@ -44,7 +44,6 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     isObscureText = widget.isPassword;
   }
@@ -77,6 +76,7 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
             onChanged: widget.onChanged,
             enabled: widget.isEnabled,
             maxLines: widget.maxLines,
+            
             decoration: InputDecoration(
               prefixIcon: widget.prefixIcon,
               hintText: widget.hintText,

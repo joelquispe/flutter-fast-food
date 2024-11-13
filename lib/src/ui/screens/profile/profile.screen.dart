@@ -18,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
       ItemListTileProfile(
         label: "Métodos de pagos",
         icon: Icons.payment,
-        path: Routes.methodsPayments,
+        path: Routes.cardPayment,
       ),
       ItemListTileProfile(
         label: "Mis direcciones",

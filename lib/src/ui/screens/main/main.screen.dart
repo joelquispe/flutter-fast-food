@@ -1,12 +1,10 @@
-import 'dart:convert';
-
 import 'package:ecommercesmall/src/common/constants/const.dart';
+import 'package:ecommercesmall/src/common/utils/flutterToast.util.dart';
 import 'package:ecommercesmall/src/config/hiveManager.config.dart';
 import 'package:ecommercesmall/src/domain/models/cart.model.dart';
 import 'package:ecommercesmall/src/domain/models/product.model.dart';
-import 'package:ecommercesmall/src/domain/providers/cart.provider.dart';
+import 'package:ecommercesmall/src/data/providers/cart.provider.dart';
 import 'package:ecommercesmall/src/router/routes.dart';
-import 'package:ecommercesmall/src/common/helpers/flutterToast.helper.dart';
 import 'package:ecommercesmall/src/themes/colors.dart';
 import 'package:ecommercesmall/src/ui/screens/home/home.screen.dart';
 import 'package:ecommercesmall/src/ui/screens/notifications/notifications.screen.dart';
@@ -64,9 +62,8 @@ class _MainScreenState extends State<MainScreen> {
                 if (cartProvider.cart.amount > 0) {
                   context.push(Routes.cart);
                 } else {
-                  showToastHelper(
+                  showToastUtil(
                     "El carrito de compras esta vacío",
-                    secondaryColor,
                   );
                 }
               },
@@ -118,7 +115,6 @@ class _MainScreenState extends State<MainScreen> {
             duration: const Duration(milliseconds: 500),
             curve: Curves.easeInOut,
           );
-          print(value);
         },
         currentIndex: currentPage,
         items: const [

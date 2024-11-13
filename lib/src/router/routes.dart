@@ -9,6 +9,7 @@ class Routes {
   static const checkout = "/checkout";
   static const settings = "/settings";
   static const personalInformation = "/personalInformation";
+  static const cardPayment = "/cardPayment";
   static const methodsPayments = "/methodsPayments";
   static const orders = "/orders";
   static const addresses = "/addresses";

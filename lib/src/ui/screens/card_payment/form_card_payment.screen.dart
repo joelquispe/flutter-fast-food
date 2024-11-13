@@ -9,15 +9,15 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'package:u_credit_card/u_credit_card.dart';
 
-class FormMethodsPaymentsScreen extends StatefulWidget {
+class FormCardPaymentScreen extends StatefulWidget {
   final String? id;
-  const FormMethodsPaymentsScreen({super.key, this.id});
+  const FormCardPaymentScreen({super.key, this.id});
 
   @override
-  State<FormMethodsPaymentsScreen> createState() => _FormMethodsPaymentsScreenState();
+  State<FormCardPaymentScreen> createState() => _FormCardPaymentScreenState();
 }
 
-class _FormMethodsPaymentsScreenState extends State<FormMethodsPaymentsScreen> {
+class _FormCardPaymentScreenState extends State<FormCardPaymentScreen> {
   final tfCardNumber = TextEditingController();
   final tfExpired = TextEditingController();
   final tfCardHolder = TextEditingController();
@@ -56,7 +56,7 @@ class _FormMethodsPaymentsScreenState extends State<FormMethodsPaymentsScreen> {
   Widget build(BuildContext context) {
     final cardInformationProvider = context.read<CardInformationProvider>();
     return MainLayout(
-      appBarTitle: widget.id != null ? "Editar método de pago" : "Crear método de pago",
+      appBarTitle: widget.id != null ? "Editar tarjeta" : "Crear tarjeta",
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,

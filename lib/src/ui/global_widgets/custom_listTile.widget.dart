@@ -4,6 +4,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomListTileWidget extends StatelessWidget {
   final IconData leadingIcon;
+  final String? assetIcon;
   final String title;
   final String? subtitle;
   final Widget? trailing;
@@ -11,6 +12,7 @@ class CustomListTileWidget extends StatelessWidget {
   const CustomListTileWidget({
     super.key,
     required this.leadingIcon,
+    this.assetIcon,
     required this.title,
     this.subtitle,
     this.trailing,
@@ -20,7 +22,7 @@ class CustomListTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(
+      leading: assetIcon != null ? Image.asset(assetIcon!) : Icon(
         leadingIcon,
         color: primaryColor,
       ),

@@ -1,7 +1,9 @@
+import 'package:ecommercesmall/src/router/router.dart';
 import 'package:ecommercesmall/src/ui/global_widgets/custom_button.widget.dart';
 import 'package:ecommercesmall/src/ui/global_widgets/custom_textField.widget.dart';
 import 'package:ecommercesmall/src/ui/layouts/main.layout.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PersonalInformationScreen extends StatefulWidget {
   const PersonalInformationScreen({super.key});
@@ -18,6 +20,10 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
   final tfDateOfBirthController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
+
+  void updateData(){
+    context.pop();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +42,7 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                   return value!.isEmpty ? "Campo requerido" : null;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               CustomTextFieldWidget(
@@ -104,7 +110,7 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                 text: "Guardar",
                 onTap: () {
                   if (formKey.currentState!.validate()) {
-                    print("datos guardados");
+                    updateData();
                   }
                 },
               ),

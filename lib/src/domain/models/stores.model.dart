@@ -1,4 +1,3 @@
-import 'package:ecommercesmall/src/domain/models/category.model.dart';
 import 'package:ecommercesmall/src/domain/models/product.model.dart';
 
 class StoreModel {

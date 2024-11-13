@@ -1,14 +1,13 @@
 import 'package:ecommercesmall/src/config/hiveManager.config.dart';
-import 'package:ecommercesmall/src/domain/providers/cart.provider.dart';
-import 'package:ecommercesmall/src/domain/providers/product.provider.dart';
+import 'package:ecommercesmall/src/data/providers/cart.provider.dart';
+import 'package:ecommercesmall/src/data/providers/product.provider.dart';
 import 'package:ecommercesmall/src/router/router.dart';
+import 'package:ecommercesmall/src/ui/providers/card_information_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
-
 import 'package:provider/provider.dart';
-
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() async {
@@ -42,6 +41,9 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider<ProductProvider>(
           create: (_) => ProductProvider(),
         ),
+         ChangeNotifierProvider<CardInformationProvider>(
+          create: (_) => CardInformationProvider(),
+        ),
       ],
       child: ResponsiveSizer(
         builder: (context, orientation, screenType) {
@@ -55,7 +57,7 @@ class _MyAppState extends State<MyApp> {
               Locale('es'),
             ],
             debugShowCheckedModeBanner: false,
-            title: 'Ecommerce Small',
+            title: 'Fast Food',
             routerConfig: goRouterConfig,
           );
         },

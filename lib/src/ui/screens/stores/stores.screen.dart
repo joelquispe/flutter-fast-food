@@ -1,12 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercesmall/src/common/constants/data.dart';
 import 'package:ecommercesmall/src/domain/models/stores.model.dart';
-import 'package:ecommercesmall/src/router/routes.dart';
 import 'package:ecommercesmall/src/ui/layouts/main.layout.dart';
 import 'package:ecommercesmall/src/ui/screens/products/products.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 

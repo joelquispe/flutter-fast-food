@@ -1,5 +1,5 @@
 import 'package:ecommercesmall/src/domain/models/cartItem.model.dart';
-import 'package:ecommercesmall/src/domain/providers/cart.provider.dart';
+import 'package:ecommercesmall/src/data/providers/cart.provider.dart';
 import 'package:ecommercesmall/src/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -28,7 +28,9 @@ class CustomCardItemCart extends StatelessWidget {
           },
           child: Container(
             padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+            ),
             child: Row(
               children: [
                 ClipRRect(

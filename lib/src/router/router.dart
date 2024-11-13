@@ -1,10 +1,14 @@
 import 'package:ecommercesmall/src/router/routes.dart';
 import 'package:ecommercesmall/src/ui/screens/addresses/addresses.screen.dart';
+import 'package:ecommercesmall/src/ui/screens/addresses/form_addresses.screen.dart';
+import 'package:ecommercesmall/src/ui/screens/card_payment/card_payment.screen.dart';
+import 'package:ecommercesmall/src/ui/screens/card_payment/form_card_payment.screen.dart';
 import 'package:ecommercesmall/src/ui/screens/cart/cart.screen.dart';
 import 'package:ecommercesmall/src/ui/screens/checkout/checkout.screen.dart';
 import 'package:ecommercesmall/src/ui/screens/home/home.screen.dart';
 import 'package:ecommercesmall/src/ui/screens/login/login.screen.dart';
 import 'package:ecommercesmall/src/ui/screens/main/main.screen.dart';
+import 'package:ecommercesmall/src/ui/screens/methods_payments/form_methods_payments.screen.dart';
 import 'package:ecommercesmall/src/ui/screens/methods_payments/methods_payments.screen.dart';
 import 'package:ecommercesmall/src/ui/screens/orders/orders.screen.dart';
 import 'package:ecommercesmall/src/ui/screens/orders/orders_detail.screen.dart';
@@ -85,12 +89,29 @@ final goRouterConfig = GoRouter(
       },
     ),
     GoRoute(
-      path: Routes.methodsPayments,
+      path: Routes.cardPayment,
       builder: (context, state) {
-        return MethodsPaymentsScreen(
+        return CardPaymentScreen(
           key: state.pageKey,
         );
       },
+      routes: [
+        GoRoute(
+          path: "edit/:id",
+          builder: (context, state) {
+            final id = state.pathParameters['id'];
+            return FormCardPaymentScreen(
+              id: id,
+            );
+          },
+        ),
+        GoRoute(
+          path: "create",
+          builder: (context, state) {
+            return FormCardPaymentScreen();
+          },
+        ),
+      ],
     ),
     GoRoute(
       path: Routes.addresses,
@@ -99,6 +120,23 @@ final goRouterConfig = GoRouter(
           key: state.pageKey,
         );
       },
+      routes: [
+         GoRoute(
+          path: "edit/:id",
+          builder: (context, state) {
+            final id = state.pathParameters['id'];
+            return FormAddressesScreen(
+              id: id,
+            );
+          },
+        ),
+        GoRoute(
+          path: "create",
+          builder: (context, state) {
+            return FormAddressesScreen();
+          },
+        ),
+      ]
     ),
     GoRoute(
       path: Routes.personalInformation,
@@ -141,6 +179,16 @@ final goRouterConfig = GoRouter(
         return StoresScreen(
           key: state.pageKey,
           idCategory: data ?? '',
+        );
+      },
+    ),
+    GoRoute(
+      path: Routes.methodsPayments,
+      builder: (context, state) {
+        final data = state.pathParameters['idCategory'];
+        return MethodsPaymentsScreen(
+          key: state.pageKey,
+         
         );
       },
     ),

@@ -17,7 +17,7 @@ class CustomCardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric( vertical: 10),
+      padding: const EdgeInsets.symmetric( vertical: 10),
       child: Material(
         elevation: 5,
         borderRadius: BorderRadius.circular(5),

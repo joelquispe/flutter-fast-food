@@ -81,6 +81,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     prefixIcon: const Icon(
                       Icons.phone,
                     ),
+                    textInputType: TextInputType.phone,
                     label: "Celular",
                     controller: tfPhoneController,
                     hintText: "902123321",

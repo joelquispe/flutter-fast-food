@@ -1,9 +1,8 @@
+import 'package:ecommercesmall/src/common/utils/flutterToast.util.dart';
 import 'package:ecommercesmall/src/domain/models/cartItem.model.dart';
 import 'package:ecommercesmall/src/domain/models/product.model.dart';
-import 'package:ecommercesmall/src/domain/providers/cart.provider.dart';
-import 'package:ecommercesmall/src/domain/providers/product.provider.dart';
-import 'package:ecommercesmall/src/common/helpers/flutterToast.helper.dart';
-import 'package:ecommercesmall/src/themes/colors.dart';
+import 'package:ecommercesmall/src/data/providers/cart.provider.dart';
+import 'package:ecommercesmall/src/data/providers/product.provider.dart';
 import 'package:ecommercesmall/src/ui/global_widgets/custom_button.widget.dart';
 import 'package:ecommercesmall/src/ui/layouts/main.layout.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +32,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
   getProduct() {
     product = productProvider.products.firstWhere((element) => element.idProduct == widget.id);
-    print(product.image);
   }
 
   @override
@@ -46,7 +44,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         children: [
           Image.network(
             product.image,
-            height: 32.h,
+            height: 30.h,
             width: double.infinity,
             fit: BoxFit.cover,
           ),
@@ -84,22 +82,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         child: CustomButtonWidget(
                             text: "Agregar",
                             onTap: () {
-                              print(product.idProduct);
                               CartItem cartItem = CartItem(
                                 item: product,
                                 quantity: quantity,
                               );
                               bool isAddItem = cartProvider.addItem(cartItem);
                               if (isAddItem) {
-                                showToastHelper(
+                                showToastUtil(
                                   "Se agrego al carrito",
-                                  secondaryColor,
                                 );
                                 context.pop();
                               } else {
-                                showToastHelper(
+                                showToastUtil(
                                   "El producto ya esta agregado",
-                                  Colors.grey.shade600,
                                 );
                               }
                             }),

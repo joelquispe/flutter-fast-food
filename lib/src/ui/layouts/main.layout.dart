@@ -6,16 +6,19 @@ class MainLayout extends StatelessWidget {
   final Widget body;
   final String? appBarTitle;
   final bool isPadding;
+  final Widget? bottomBar;
   const MainLayout({
     super.key,
     required this.body,
     this.appBarTitle,
     this.isPadding = true,
+    this.bottomBar,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomBar,
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
