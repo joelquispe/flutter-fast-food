@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercesmall/src/common/constants/data.dart';
-import 'package:ecommercesmall/src/domain/models/stores.model.dart';
+import 'package:ecommercesmall/src/core/models/stores.model.dart';
 import 'package:ecommercesmall/src/ui/layouts/main.layout.dart';
 import 'package:ecommercesmall/src/ui/screens/products/products.screen.dart';
 import 'package:flutter/material.dart';

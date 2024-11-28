@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:ecommercesmall/src/common/constants/const.dart';
-import 'package:ecommercesmall/src/domain/models/prediction.model.dart';
+import 'package:ecommercesmall/src/core/models/prediction.model.dart';
 import 'package:ecommercesmall/src/themes/colors.dart';
 import 'package:ecommercesmall/src/ui/global_widgets/custom_button.widget.dart';
 import 'package:ecommercesmall/src/ui/global_widgets/custom_textField.widget.dart';

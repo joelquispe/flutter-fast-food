@@ -1,5 +1,5 @@
-import 'package:ecommercesmall/src/domain/models/cartItem.model.dart';
-import 'package:ecommercesmall/src/data/providers/cart.provider.dart';
+import 'package:ecommercesmall/src/core/models/cartItem.model.dart';
+import 'package:ecommercesmall/src/ui/providers/cart.provider.dart';
 import 'package:ecommercesmall/src/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

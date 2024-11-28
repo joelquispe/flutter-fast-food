@@ -1,4 +1,4 @@
-import 'package:ecommercesmall/src/domain/models/product.model.dart';
+import 'package:ecommercesmall/src/core/models/product.model.dart';
 import 'package:flutter/material.dart';
 
 class ProductProvider extends ChangeNotifier {

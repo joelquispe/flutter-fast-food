@@ -22,6 +22,7 @@ class CustomListTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: EdgeInsets.zero,
       leading: assetIcon != null ? Image.asset(assetIcon!) : Icon(
         leadingIcon,
         color: primaryColor,

@@ -1,6 +1,7 @@
-import 'package:ecommercesmall/src/domain/models/coupon.model.dart';
-import 'package:ecommercesmall/src/domain/models/method_payment.model.dart';
-import 'package:ecommercesmall/src/domain/models/stores.model.dart';
+import 'package:ecommercesmall/src/core/models/coupon.model.dart';
+import 'package:ecommercesmall/src/core/models/method_payment.model.dart';
+import 'package:ecommercesmall/src/core/models/state.model.dart';
+import 'package:ecommercesmall/src/core/models/stores.model.dart';
 
 List<StoreModel> stores = [
   StoreModel(
@@ -59,4 +60,12 @@ List<Coupon> couponsData = [
   Coupon(id: "1", code: "YOECODEIBK",isActive: true, value: 20),
   Coupon(id: "2", code: "GIANBTP",isActive: false, value: 30),
   Coupon(id: "3", code: "SOTOINT",isActive: true, value: 100),
+];
+
+List<State> statesData = [
+  State(id: 1, name: "Realizado",position: 1),
+  State(id: 2, name: "Confirmado",position: 2),
+  State(id: 3, name: "Preparando", position: 3),
+  State(id: 4, name: "En camino", position: 4),
+  State(id: 5, name: "Entregado",position: 5),
 ];

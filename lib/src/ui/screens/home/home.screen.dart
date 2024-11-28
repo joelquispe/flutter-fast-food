@@ -1,4 +1,4 @@
-import 'package:ecommercesmall/src/data/providers/cart.provider.dart';
+import 'package:ecommercesmall/src/ui/providers/cart.provider.dart';
 import 'package:ecommercesmall/src/router/routes.dart';
 import 'package:ecommercesmall/src/ui/screens/home/widgets/card_category_store.widget.dart';
 import 'package:flutter/material.dart';

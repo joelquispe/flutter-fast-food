@@ -1,4 +1,4 @@
-import 'package:ecommercesmall/src/domain/models/cartItem.model.dart';
+import 'package:ecommercesmall/src/core/models/cartItem.model.dart';
 
 class Cart {
   List<CartItem> items;

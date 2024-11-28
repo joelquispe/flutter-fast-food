@@ -1,4 +1,4 @@
-import 'package:ecommercesmall/src/domain/models/product.model.dart';
+import 'package:ecommercesmall/src/core/models/product.model.dart';
 import 'package:ecommercesmall/src/ui/global_widgets/custom_button.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';

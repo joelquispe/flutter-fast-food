@@ -1,5 +1,5 @@
-import 'package:ecommercesmall/src/domain/models/cart.model.dart';
-import 'package:ecommercesmall/src/domain/models/cartItem.model.dart';
+import 'package:ecommercesmall/src/core/models/cart.model.dart';
+import 'package:ecommercesmall/src/core/models/cartItem.model.dart';
 import 'package:flutter/material.dart';
 
 class CartProvider extends ChangeNotifier {

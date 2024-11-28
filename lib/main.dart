@@ -1,6 +1,7 @@
 import 'package:ecommercesmall/src/config/hiveManager.config.dart';
-import 'package:ecommercesmall/src/data/providers/cart.provider.dart';
-import 'package:ecommercesmall/src/data/providers/product.provider.dart';
+import 'package:ecommercesmall/src/themes/themes.dart';
+import 'package:ecommercesmall/src/ui/providers/cart.provider.dart';
+import 'package:ecommercesmall/src/ui/providers/product.provider.dart';
 import 'package:ecommercesmall/src/router/router.dart';
 import 'package:ecommercesmall/src/ui/providers/card_information_provider.dart';
 import 'package:flutter/material.dart';
@@ -56,6 +57,8 @@ class _MyAppState extends State<MyApp> {
             supportedLocales: const [
               Locale('es'),
             ],
+            theme: themeLight(context),
+            darkTheme: themeDark(context),
             debugShowCheckedModeBanner: false,
             title: 'Fast Food',
             routerConfig: goRouterConfig,

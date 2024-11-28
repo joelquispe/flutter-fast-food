@@ -114,38 +114,29 @@ final goRouterConfig = GoRouter(
       ],
     ),
     GoRoute(
-      path: Routes.addresses,
-      builder: (context, state) {
-        return AddressesScreen(
-          key: state.pageKey,
-        );
-      },
-      routes: [
-         GoRoute(
-          path: "edit/:id",
-          builder: (context, state) {
-            final id = state.pathParameters['id'];
-            return FormAddressesScreen(
-              id: id,
-            );
-          },
-        ),
-        GoRoute(
-          path: "create",
-          builder: (context, state) {
-            return FormAddressesScreen();
-          },
-        ),
-      ]
-    ),
-    GoRoute(
-      path: Routes.personalInformation,
-      builder: (context, state) {
-        return PersonalInformationScreen(
-          key: state.pageKey,
-        );
-      },
-    ),
+        path: Routes.addresses,
+        builder: (context, state) {
+          return AddressesScreen(
+            key: state.pageKey,
+          );
+        },
+        routes: [
+          GoRoute(
+            path: "edit/:id",
+            builder: (context, state) {
+              final id = state.pathParameters['id'];
+              return FormAddressesScreen(
+                id: id,
+              );
+            },
+          ),
+          GoRoute(
+            path: "create",
+            builder: (context, state) {
+              return FormAddressesScreen();
+            },
+          ),
+        ]),
     GoRoute(
       path: Routes.orders,
       builder: (context, state) {
@@ -188,7 +179,6 @@ final goRouterConfig = GoRouter(
         final data = state.pathParameters['idCategory'];
         return MethodsPaymentsScreen(
           key: state.pageKey,
-         
         );
       },
     ),

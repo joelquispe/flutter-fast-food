@@ -1,10 +1,15 @@
 import 'package:ecommercesmall/src/common/utils/flutterToast.util.dart';
-import 'package:ecommercesmall/src/domain/models/cartItem.model.dart';
-import 'package:ecommercesmall/src/domain/models/product.model.dart';
-import 'package:ecommercesmall/src/data/providers/cart.provider.dart';
-import 'package:ecommercesmall/src/data/providers/product.provider.dart';
+import 'package:ecommercesmall/src/core/models/cartItem.model.dart';
+import 'package:ecommercesmall/src/core/models/option_item_model.dart';
+import 'package:ecommercesmall/src/core/models/product.model.dart';
+import 'package:ecommercesmall/src/ui/providers/cart.provider.dart';
+import 'package:ecommercesmall/src/ui/providers/product.provider.dart';
 import 'package:ecommercesmall/src/ui/global_widgets/custom_button.widget.dart';
+import 'package:ecommercesmall/src/ui/global_widgets/custom_divider.widget.dart';
+import 'package:ecommercesmall/src/ui/global_widgets/custom_product_recommended.widget.dart';
 import 'package:ecommercesmall/src/ui/layouts/main.layout.dart';
+import 'package:ecommercesmall/src/ui/screens/products/widgets/option_item_addon_widget.dart';
+import 'package:ecommercesmall/src/ui/screens/products/widgets/option_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -23,6 +28,20 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   late ProductProvider productProvider;
   late Product product;
   int quantity = 1;
+  String optionSelected = "1";
+  int groupValue = 0;
+
+  List<OptionItemModel> optionsAddons = [
+    OptionItemModel(name: "Mayonesa", value: "1", isSelected: false),
+    OptionItemModel(name: "Mostaza", value: "2", isSelected: false),
+    OptionItemModel(name: "Ketchup", value: "3", isSelected: false),
+  ];
+
+  List<OptionItemModel> options = [
+    OptionItemModel(name: "Tradicional", value: "1", isSelected: false),
+    OptionItemModel(name: "Crispi", value: "2", isSelected: false),
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -40,31 +59,106 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     return MainLayout(
       appBarTitle: product.name,
       isPadding: false,
-      body: Column(
-        children: [
-          Image.network(
-            product.image,
-            height: 30.h,
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ),
-          Expanded(
-            child: Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.network(
+              product.image,
+              height: 30.h,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                      child: Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         product.description,
                         style: TextStyle(fontWeight: FontWeight.w700, color: Colors.grey.shade700, fontSize: 16.sp),
                       ),
+                      CustomDividerWidget(
+                        height: 20,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Cremas",
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                          ),
+                          ListView.separated(
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemBuilder: (context, index) {
+                              final element = optionsAddons[index];
+                              return OptionItemAddonWidget(
+                                title: element.name,
+                                value: element.value == "1",
+                                onChanged: (value) {},
+                              );
+                            },
+                            separatorBuilder: (context, index) {
+                              return CustomDividerWidget();
+                            },
+                            itemCount: optionsAddons.length,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Pollo",
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                          ),
+                          ListView.separated(
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemBuilder: (context, index) {
+                              final element = options[index];
+                              return OptionItemWidget(
+                                groupValue: optionSelected,
+                                name: element.name,
+                                value: element.value == "1",
+                                onChanged: (value) {},
+                              );
+                            },
+                            separatorBuilder: (context, index) {
+                              return CustomDividerWidget();
+                            },
+                            itemCount: options.length,
+                          ),
+                        ],
+                      ),
+                      CustomDividerWidget(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        height: 150,
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          separatorBuilder: (context, index) {
+                            return SizedBox(
+                              width: 10,
+                            );
+                          },
+                          shrinkWrap: true,
+                          itemCount: 10,
+                          itemBuilder: (context, index) {
+                            return CustomProductRecommendedWidget();
+                          },
+                        ),
+                      ),
+                      CustomDividerWidget(
+                        height: 20,
+                      )
                     ],
-                  )),
+                  ),
                   Text(
                     "S/${product.price}",
                     style: TextStyle(
@@ -150,8 +244,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

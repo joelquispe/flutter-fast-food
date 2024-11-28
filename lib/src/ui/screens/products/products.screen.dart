@@ -1,10 +1,10 @@
 import 'package:ecommercesmall/src/common/constants/const.dart';
 import 'package:ecommercesmall/src/common/utils/flutterToast.util.dart';
 import 'package:ecommercesmall/src/config/hiveManager.config.dart';
-import 'package:ecommercesmall/src/domain/models/cartItem.model.dart';
-import 'package:ecommercesmall/src/domain/models/product.model.dart';
-import 'package:ecommercesmall/src/data/providers/cart.provider.dart';
-import 'package:ecommercesmall/src/data/providers/product.provider.dart';
+import 'package:ecommercesmall/src/core/models/cartItem.model.dart';
+import 'package:ecommercesmall/src/core/models/product.model.dart';
+import 'package:ecommercesmall/src/ui/providers/cart.provider.dart';
+import 'package:ecommercesmall/src/ui/providers/product.provider.dart';
 import 'package:ecommercesmall/src/router/routes.dart';
 import 'package:ecommercesmall/src/ui/global_widgets/custom_card_item.widget.dart';
 import 'package:ecommercesmall/src/ui/global_widgets/custom_textField.widget.dart';

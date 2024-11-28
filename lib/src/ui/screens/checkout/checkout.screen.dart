@@ -6,6 +6,9 @@ import 'package:ecommercesmall/src/ui/global_widgets/custom_back_button.widget.d
 import 'package:ecommercesmall/src/ui/global_widgets/custom_button.widget.dart';
 import 'package:ecommercesmall/src/ui/global_widgets/custom_textField.widget.dart';
 import 'package:ecommercesmall/src/ui/layouts/main.layout.dart';
+import 'package:ecommercesmall/src/ui/screens/checkout/widgets/card_item_checkout.widget.dart';
+import 'package:ecommercesmall/src/ui/screens/checkout/widgets/checkout_price_total.widget.dart.dart';
+import 'package:ecommercesmall/src/ui/global_widgets/product_card_checkout.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -240,7 +243,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               height: 10,
             ),
             Text(
-              "Resume de pedido",
+              "Resumen de pedido",
               style: TextStyle(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.bold,
@@ -249,106 +252,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             const SizedBox(
               height: 10,
             ),
-            CardItemCheckoutWidget(
-              body: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Envío",
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Text(
-                        "S/10.00",
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 6,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Sub Total",
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Text(
-                        "S/90.00",
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                  isDiscount
-                      ? Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const SizedBox(
-                              height: 6,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Descuento",
-                                  style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                Text(
-                                  "S/4.00",
-                                  style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        )
-                      : const SizedBox(),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 6),
-                    height: 1,
-                    color: Colors.grey.shade300,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Total",
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Text(
-                        "S/100.00",
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            )
+            CardItemCheckoutWidget(body: CheckoutPriceTotalWidget()),
           ],
         ),
       ),
@@ -356,69 +260,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   }
 }
 
-class ProductCardCheckoutWidget extends StatelessWidget {
-  const ProductCardCheckoutWidget({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
-      leading: CachedNetworkImage(
-        imageUrl:
-            "https://gestion.pe/resizer/i5vGkdDtf5Hm87rWfJgyCvkwEyI=/1200x900/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/IOUUSANWTNDP7G3IJPGGO6NZOI.jpg",
-        fit: BoxFit.cover,
-        filterQuality: FilterQuality.medium,
-        width: 70,
-        placeholder: (context, url) {
-          return LoadingAnimationWidget.inkDrop(
-            color: Colors.grey,
-            size: 20,
-          );
-        },
-        imageBuilder: (context, imageProvider) {
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(image: imageProvider),
-            ),
-          );
-        },
-        errorWidget: (context, url, error) {
-          return const Icon(Icons.image);
-        },
-      ),
-      title: Text(
-        "Pollo a la brasa",
-        style: TextStyle(
-          fontSize: 16.sp,
-        ),
-      ),
-      subtitle: Text("S/20.00"),
-    );
-  }
-}
 
-class CardItemCheckoutWidget extends StatelessWidget {
-  final Widget body;
-  const CardItemCheckoutWidget({
-    super.key,
-    required this.body,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          width: 0.9,
-          color: Colors.grey.shade300,
-        ),
-      ),
-      child: body,
-    );
-  }
-}
+
