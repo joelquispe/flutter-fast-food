@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class OptionItemWidget extends StatelessWidget {
+class OptionItemQuantityWidget extends StatelessWidget {
   final String name;
   final Object? groupValue;
   final Object value;
   final void Function(Object?)? onChanged;
-  const OptionItemWidget({
+  const OptionItemQuantityWidget({
     super.key,
     required this.name,
     required this.groupValue,
@@ -35,6 +35,7 @@ class OptionItemWidget extends StatelessWidget {
                   child: Center(
                       child: Icon(
                     Icons.remove,
+                    size: 16,
                   )),
                 ),
               ),
@@ -61,6 +62,7 @@ class OptionItemWidget extends StatelessWidget {
                   child: Center(
                     child: Icon(
                       Icons.add,
+                      size: 16,
                     ),
                   ),
                 ),

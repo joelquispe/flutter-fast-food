@@ -8,8 +8,9 @@ import 'package:ecommercesmall/src/ui/global_widgets/custom_button.widget.dart';
 import 'package:ecommercesmall/src/ui/global_widgets/custom_divider.widget.dart';
 import 'package:ecommercesmall/src/ui/global_widgets/custom_product_recommended.widget.dart';
 import 'package:ecommercesmall/src/ui/layouts/main.layout.dart';
-import 'package:ecommercesmall/src/ui/screens/products/widgets/option_item_addon_widget.dart';
-import 'package:ecommercesmall/src/ui/screens/products/widgets/option_item_widget.dart';
+import 'package:ecommercesmall/src/ui/screens/products/widgets/option_item_multiple_widget.dart';
+import 'package:ecommercesmall/src/ui/screens/products/widgets/option_item_quantity_widget.dart';
+import 'package:ecommercesmall/src/ui/screens/products/widgets/option_item_single_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -31,15 +32,20 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   String optionSelected = "1";
   int groupValue = 0;
 
-  List<OptionItemModel> optionsAddons = [
+  List<OptionItemModel> optionsMultiple = [
     OptionItemModel(name: "Mayonesa", value: "1", isSelected: false),
     OptionItemModel(name: "Mostaza", value: "2", isSelected: false),
     OptionItemModel(name: "Ketchup", value: "3", isSelected: false),
   ];
 
-  List<OptionItemModel> options = [
+  List<OptionItemModel> optionsQuantity = [
     OptionItemModel(name: "Tradicional", value: "1", isSelected: false),
     OptionItemModel(name: "Crispi", value: "2", isSelected: false),
+  ];
+
+  List<OptionItemModel> optionsSingle = [
+    OptionItemModel(name: "Tradicional", value: "1", isSelected: false, extraPrice: 5),
+    OptionItemModel(name: "Carne Brava", value: "2", isSelected: false,extraPrice: 10),
   ];
 
   @override
@@ -95,9 +101,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             shrinkWrap: true,
                             physics: NeverScrollableScrollPhysics(),
                             itemBuilder: (context, index) {
-                              final element = optionsAddons[index];
-                              return OptionItemAddonWidget(
-                                title: element.name,
+                              final element = optionsMultiple[index];
+                              return OptionItemMultipleWidget(
+                                name: element.name,
                                 value: element.value == "1",
                                 onChanged: (value) {},
                               );
@@ -105,7 +111,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             separatorBuilder: (context, index) {
                               return CustomDividerWidget();
                             },
-                            itemCount: optionsAddons.length,
+                            itemCount: optionsMultiple.length,
                           ),
                         ],
                       ),
@@ -120,8 +126,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             shrinkWrap: true,
                             physics: NeverScrollableScrollPhysics(),
                             itemBuilder: (context, index) {
-                              final element = options[index];
-                              return OptionItemWidget(
+                              final element = optionsQuantity[index];
+                              return OptionItemQuantityWidget(
                                 groupValue: optionSelected,
                                 name: element.name,
                                 value: element.value == "1",
@@ -131,7 +137,34 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             separatorBuilder: (context, index) {
                               return CustomDividerWidget();
                             },
-                            itemCount: options.length,
+                            itemCount: optionsQuantity.length,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Carne",
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                          ),
+                          ListView.separated(
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemBuilder: (context, index) {
+                              final element = optionsSingle[index];
+                              return OptionItemSingleWidget(
+                                groupValue: optionSelected,
+                                name: element.name,
+                                extraPrice: element.extraPrice,
+                                value: element.value == "1",
+                                onChanged: (value) {},
+                              );
+                            },
+                            separatorBuilder: (context, index) {
+                              return CustomDividerWidget();
+                            },
+                            itemCount: optionsSingle.length,
                           ),
                         ],
                       ),

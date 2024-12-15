@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class OptionItemAddonWidget extends StatelessWidget {
-  final String title;
+class OptionItemMultipleWidget extends StatelessWidget {
+  final String name;
   final bool value;
   final void Function(bool?)? onChanged;
-  const OptionItemAddonWidget({
+  const OptionItemMultipleWidget({
     super.key,
-    required this.title,
+    required this.name,
     required this.value,
     required this.onChanged,
   });
@@ -16,7 +16,7 @@ class OptionItemAddonWidget extends StatelessWidget {
     return CheckboxListTile.adaptive(
       contentPadding: EdgeInsets.zero,
       visualDensity: VisualDensity.compact,
-      title: Text(title),
+      title: Text(name),
       value: value,
       onChanged: onChanged,
     );

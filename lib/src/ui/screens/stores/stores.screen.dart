@@ -92,6 +92,7 @@ class _StoresScreenState extends State<StoresScreen> {
                                     Text(
                                       "Miin Store",
                                       style: TextStyle(
+                                        overflow: TextOverflow.ellipsis,
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.bold,
                                       ),

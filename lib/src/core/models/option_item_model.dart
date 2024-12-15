@@ -5,17 +5,22 @@ class OptionItemModel {
   final String name;
   final String value;
   final bool isSelected;
+  final double? extraPrice;
   OptionItemModel({
     required this.name,
     required this.value,
     required this.isSelected,
+    this.extraPrice,
   });
+
+  
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': name,
       'value': value,
       'isSelected': isSelected,
+      'extraPrice': extraPrice,
     };
   }
 
@@ -24,6 +29,7 @@ class OptionItemModel {
       name: map['name'] as String,
       value: map['value'] as String,
       isSelected: map['isSelected'] as bool,
+      extraPrice: map['extraPrice'] as double,
     );
   }
 
